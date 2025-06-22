@@ -1,212 +1,150 @@
 import React from "react";
-import styled from "styled-components";
-import { FaBrain, FaMedal, FaSmileBeam, FaBookOpen } from "react-icons/fa";
-
-const PageWrapper = styled.div`
-  font-family: "Inter", sans-serif;
-  color: #333;
-  background-color: #f9f8ff;
-`;
-
-// 1. Hero Section
-const Hero = styled.section`
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #a678f1, #8f5ef7);
-  color: white;
-  text-align: center;
-`;
-
-const HeroTitle = styled.h1`
-  font-size: 42px;
-  margin-bottom: 20px;
-`;
-
-const HeroText = styled.p`
-  font-size: 18px;
-  max-width: 600px;
-  margin: 0 auto 30px;
-`;
-
-const HeroButton = styled.button`
-  padding: 12px 28px;
-  font-size: 16px;
-  background-color: #ffe600;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #6a0dad;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: #fff176;
-  }
-`;
-
-// 2. Features Section
-const Section = styled.section`
-  padding: 60px 20px;
-  text-align: center;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 32px;
-  margin-bottom: 40px;
-  color: #6a0dad;
-`;
-
-const FeaturesGrid = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-`;
-
-const FeatureCard = styled.div`
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  width: 220px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: translateY(-6px);
-  }
-
-  svg {
-    font-size: 32px;
-    color: #a678f1;
-    margin-bottom: 10px;
-  }
-
-  h3 {
-    margin: 10px 0;
-    font-size: 18px;
-  }
-
-  p {
-    font-size: 14px;
-    color: #555;
-  }
-`;
-
-// 3. Categories Section
-const CategoriesGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-`;
-
-const Category = styled.div`
-  background-color: #dcd2ff;
-  padding: 20px;
-  border-radius: 12px;
-  font-weight: bold;
-  color: #6a0dad;
-`;
-
-// 4. Leaderboard Preview
-const Leaderboard = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-`;
-
-const LeaderItem = styled.div`
-  background: #fff;
-  padding: 16px 20px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  display: flex;
-  justify-content: space-between;
-`;
-
-// 5. Footer
-const Footer = styled.footer`
-  background-color: #a678f1;
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-`;
 
 export default function LandingPage() {
   return (
-    <PageWrapper>
-      {/* Hero */}
-      <Hero>
-        <HeroTitle>Welcome to QuizLand 🎉</HeroTitle>
-        <HeroText>
-          Fun quizzes for curious minds! Boost your brain while having fun with
-          interactive questions, exciting categories, and friendly competition.
-        </HeroText>
-        <HeroButton>Start Now</HeroButton>
-      </Hero>
+    <div className="bg-white text-gray-800 font-sans">
+      {/* Hero Section */}
+      <section className="bg-purple-700 text-white py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            Create, Share, and Take <br className="hidden md:block" />
+            <span className="text-yellow-300">Interactive Quizzes</span> 🎯
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8">
+            Challenge yourself and others with beautifully crafted questions
+            across multiple categories.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button className="bg-yellow-300 text-purple-800 px-6 py-3 rounded-xl font-semibold shadow hover:bg-yellow-400 transition duration-200">
+              🚀 Get Started
+            </button>
+            <button className="bg-white text-purple-700 px-6 py-3 rounded-xl font-semibold border border-purple-300 shadow hover:bg-purple-50 transition duration-200">
+              🧪 Try Sample Quiz
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Overview Section */}
+      <section className="py-14 px-6 bg-gray-50 text-center">
+        <h2 className="text-3xl font-bold text-purple-700 mb-6">
+          Everything You Need to <br />{" "}
+          <span className="text-yellow-400">Create & Learn</span>
+        </h2>
+        <p className="max-w-3xl mx-auto text-base md:text-lg text-gray-700 mb-10">
+          Our platform provides all the tools you need to create engaging
+          quizzes and track learning progress effectively.
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto text-left">
+          {[
+            {
+              title: "📚 Create Custom Quizzes",
+              desc: "Build engaging quizzes with multiple-choice questions across various categories and difficulty levels.",
+            },
+            {
+              title: "🧠 Interactive Experience",
+              desc: "Take quizzes with real-time feedback, timer functionality, and smooth animations.",
+            },
+            {
+              title: "📊 Track Performance",
+              desc: "Monitor your progress with detailed results, scores, and performance analytics.",
+            },
+            {
+              title: "🌍 Share & Discover",
+              desc: "Share your quizzes with others and discover new challenges from the community.",
+            },
+          ].map(({ title, desc }) => (
+            <div
+              key={title}
+              className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition duration-200"
+            >
+              <h3 className="text-lg font-bold text-purple-700 mb-2">
+                {title}
+              </h3>
+              <p className="text-sm text-gray-700">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Features */}
-      <Section>
-        <SectionTitle>Why Kids Love Us 💜</SectionTitle>
-        <FeaturesGrid>
-          <FeatureCard>
-            <FaBrain />
-            <h3>Brain Boost</h3>
-            <p>Sharpen thinking with cool challenges.</p>
-          </FeatureCard>
-          <FeatureCard>
-            <FaMedal />
-            <h3>Leaderboard</h3>
-            <p>Compete with friends and earn badges.</p>
-          </FeatureCard>
-          <FeatureCard>
-            <FaSmileBeam />
-            <h3>Fun UI</h3>
-            <p>Colorful design kids love playing with!</p>
-          </FeatureCard>
-          <FeatureCard>
-            <FaBookOpen />
-            <h3>Learn & Play</h3>
-            <p>Educational and engaging at the same time.</p>
-          </FeatureCard>
-        </FeaturesGrid>
-      </Section>
+      <section className="py-14 px-6 bg-white text-center">
+        <h2 className="text-3xl font-bold mb-10 text-purple-700">
+          Why QuizLand?
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            ["Fun Questions 🎯", "Engaging & colorful content for all ages."],
+            ["Instant Results ⚡", "Know your score immediately!"],
+            ["Track Progress 📊", "See how you're improving over time."],
+          ].map(([title, desc]) => (
+            <div
+              key={title}
+              className="p-6 bg-purple-100 rounded-xl shadow hover:shadow-lg transition"
+            >
+              <h3 className="text-xl font-bold text-purple-800 mb-2">
+                {title}
+              </h3>
+              <p>{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      {/* Categories */}
-      <Section>
-        <SectionTitle>Quiz Categories 📚</SectionTitle>
-        <CategoriesGrid>
-          <Category>Math</Category>
-          <Category>Science</Category>
-          <Category>Animals</Category>
-          <Category>Space</Category>
-          <Category>History</Category>
-          <Category>Cartoons</Category>
-        </CategoriesGrid>
-      </Section>
+      {/* Quiz Categories */}
+      <section className="py-14 px-6 bg-gray-50 text-center">
+        <h2 className="text-3xl font-bold mb-10 text-purple-700">
+          Explore Categories 🧠
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {["Math", "Science", "English", "Animals", "Flags", "Sports"].map(
+            (cat) => (
+              <div
+                key={cat}
+                className="p-5 bg-white rounded-lg text-purple-800 font-semibold shadow hover:bg-yellow-100 transition"
+              >
+                {cat}
+              </div>
+            )
+          )}
+        </div>
+      </section>
 
-      {/* Leaderboard */}
-      <Section>
-        <SectionTitle>Top Players 🏆</SectionTitle>
-        <Leaderboard>
-          <LeaderItem>
-            <span>1. Faizan</span>
-            <span>150 pts</span>
-          </LeaderItem>
-          <LeaderItem>
-            <span>2. Aisha</span>
-            <span>130 pts</span>
-          </LeaderItem>
-          <LeaderItem>
-            <span>3. Zaid</span>
-            <span>115 pts</span>
-          </LeaderItem>
-        </Leaderboard>
-      </Section>
+      {/* Leaderboard Preview */}
+      <section className="py-14 px-6 bg-white text-center">
+        <h2 className="text-3xl font-bold mb-8 text-purple-700">
+          🏆 Top Scorers
+        </h2>
+        <div className="max-w-md mx-auto bg-purple-50 rounded-xl shadow p-6">
+          <ul className="space-y-3 text-left">
+            {["👧 Aisha - 980", "🧒 Rohan - 950", "👦 Aryan - 940"].map(
+              (entry, i) => (
+                <li
+                  key={i}
+                  className="flex justify-between border-b pb-2 text-lg font-medium"
+                >
+                  <span>{entry.split(" - ")[0]}</span>
+                  <span>{entry.split(" - ")[1]} pts</span>
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      </section>
 
-      {/* Footer */}
-      <Footer>© 2025 QuizLand — Made with 💜 for curious kids!</Footer>
-    </PageWrapper>
+      {/* Call to Action */}
+      <section className="bg-purple-700 text-white py-12 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-4">
+          Ready to get smarter while having fun?
+        </h2>
+        <p className="mb-6 text-lg">
+          Join thousands of young learners on QuizLand!
+        </p>
+        <button className="bg-yellow-300 text-purple-800 px-6 py-3 rounded-lg font-semibold shadow hover:bg-yellow-400 transition">
+          🎮 Play Now
+        </button>
+      </section>
+    </div>
   );
 }

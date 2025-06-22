@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import {
+  aboutUrl,
+  homeUrl,
+  leaderboardUrl,
+  //   loginUrl,
+  quizzesUrl,
+  registrationUrl,
+} from "./AllRoutes/RoutesUrl";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const navItems = ["Home", "Quizzes", "Leaderboard", "About", "Profile"];
+  const navItems = [
+    { label: "Home", path: homeUrl },
+    { label: "Quizzes", path: quizzesUrl },
+    { label: "Leaderboard", path: leaderboardUrl },
+    { label: "About", path: aboutUrl },
+    { label: "Profile", path: registrationUrl },
+  ];
 
-  // Scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      if (currentY > lastScrollY) {
-        setShowNavbar(false); // scrolling down
-      } else {
-        setShowNavbar(true); // scrolling up
-      }
+      setShowNavbar(currentY <= lastScrollY);
       setLastScrollY(currentY);
     };
 
@@ -32,20 +42,22 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-3xl font-extrabold select-none text-white font-[Comic Sans MS, cursive]">
-          Quiz<span className="text-yellow-300">Land</span>
-        </div>
+        <Link to={homeUrl}>
+          <div className="text-3xl font-extrabold select-none text-white font-[Comic Sans MS, cursive]">
+            Quiz<span className="text-yellow-300">Land</span>
+          </div>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-4">
           {navItems.map((item) => (
-            <li key={item}>
-              <a
-                href="#"
+            <li key={item.label}>
+              <Link
+                to={item.path}
                 className="px-4 py-2 text-sm font-semibold border border-transparent rounded-xl bg-white/10 hover:bg-yellow-300 hover:text-purple-800 transition duration-200"
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>
@@ -63,13 +75,14 @@ export default function Navbar() {
       {isOpen && (
         <ul className="md:hidden flex flex-col px-4 pb-4 gap-2 bg-purple-700 border-t border-purple-600">
           {navItems.map((item) => (
-            <li key={item}>
-              <a
-                href="#"
+            <li key={item.label}>
+              <Link
+                to={item.path}
+                onClick={() => setIsOpen(false)}
                 className="block w-full px-4 py-2 text-sm font-semibold border border-transparent rounded-xl bg-white/10 hover:bg-yellow-300 hover:text-purple-800 transition"
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>
