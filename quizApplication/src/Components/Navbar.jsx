@@ -5,7 +5,7 @@ import {
   aboutUrl,
   homeUrl,
   leaderboardUrl,
-  //   loginUrl,
+  createQuizUrl,
   quizzesUrl,
   registrationUrl,
 } from "./AllRoutes/RoutesUrl";
@@ -15,13 +15,16 @@ export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  //   here might be chnaecs thta few of the links will not be visible for the some user  let say dont want to show the queszzes if my showQueszzes() function is false
   const navItems = [
     { label: "Home", path: homeUrl },
+    // showQuizzes() && { label: "Quizzes", path: quizzesUrl },
+    { label: "Create", path: createQuizUrl },
     { label: "Quizzes", path: quizzesUrl },
     { label: "Leaderboard", path: leaderboardUrl },
     { label: "About", path: aboutUrl },
     { label: "Profile", path: registrationUrl },
-  ];
+  ].filter(Boolean); // removes false/null items
 
   useEffect(() => {
     const handleScroll = () => {

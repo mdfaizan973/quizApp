@@ -4,3 +4,4 @@ export const registrationUrl = "/registration";
 export const quizzesUrl = "/quizzes";
 export const leaderboardUrl = "/leaderboard";
 export const aboutUrl = "/about";
+export const createQuizUrl = "/create-quiz";
