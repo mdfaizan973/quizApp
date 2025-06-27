@@ -65,6 +65,8 @@ export default function CreateQuiz() {
         ? parseInt(quizData.time_limit, 10) * 60
         : 1,
       difficulty: quizData.difficulty || "low",
+      creatorId: "dsfsdfsdfsdfsd", // locolStorage
+      orgName: "FaizanQuizs",
     };
 
     console.log("✅ Saved Quiz Data:", finalQuiz);
